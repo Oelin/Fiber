@@ -35,12 +35,18 @@ const name = fiber('Alice')
 
 ```js
 name(console.log)
+```
 
-// console outputs 'Alice'
+```js
+'Alice'
+```
 
+```js
 name('Sam')
+```
 
-// console outputs 'Sam'
+```js
+'Sam'
 ```
 
 ## Adding Multiple Listeners
@@ -48,7 +54,6 @@ name('Sam')
 You can register any number of listeners to a fiber variable. For example:
 
 ```js
-
 function showAge(age) {
 	console.log(`Age is currently ${age}`)
 }
@@ -60,12 +65,19 @@ function showYoung(age) {
 }
 
 const myAge = fiber(19, showAge, showYoung)
+```
 
-// console outputs 'Age is currently 19' and then 'You are young'
+```js
+'Age is currently 19'
+'You are young'
+```
 
+```js
 myAge(30)
+```
 
-// console outputs 'Age is currently 30'
+```js
+'Age is currently 30'
 ```
 
 ## Application: Reactive Element Properties
@@ -92,16 +104,20 @@ bind(div, { id })
 
 ```js
 console.log(div)
+```
 
-// <div id='neutral'></div>
+```html
+<div id='neutral'></div>
 ```
 
 ```js
 id('danger')
 
 console.log(div)
+```
 
-// <div id='danger'></div>
+```html
+<div id='danger'></div>
 ```
 
 ## Application: Reactive Components
@@ -135,20 +151,24 @@ const app = App({
 
 ```js
 console.log(app)
+```
 
-// <div id='my-app'>
-//     <img src='./cat.jpg'>
-// </div>
+```html
+<div id='my-app'>
+    <img src='./cat.jpg'>
+</div>
 ```
 
 ```js
 background('./dog.jpg')
 
 console.log(app)
+```
 
-// <div id='my-app'>
-//     <img src='./dog.jpg'>
-// </div>
+```html
+<div id='my-app'>
+    <img src='./dog.jpg'>
+</div>
 ```
 
 It's also possible to achieve *declarative* components using a similar system; in other words, we can do something very similar to React or Vue using nothing more than `fiber()` and `bind()`.
