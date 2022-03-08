@@ -125,18 +125,23 @@ function App({ background, ...rest }) {
 
 ```js
 const background = fiber('./cat.jpg')
+const id = fiber('my-app')
 
 const app = App({
-	background,
-	id: fiber('my-app')
+	id,
+	background
 })
+```
 
+```js
 console.log(app)
 
 // <div id='my-app'>
 //     <img src='./cat.jpg'>
 // </div>
+```
 
+```js
 background('./dog.jpg')
 
 console.log(app)
