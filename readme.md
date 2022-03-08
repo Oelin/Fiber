@@ -21,7 +21,9 @@ What the library exports is a special kind of variable that can be monitored for
 
 ```js
 import fiber from './fiber.js'
+```
 
+```js
 const name = fiber('Alice')
 
 // run this once and whenever `name` changes
