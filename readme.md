@@ -68,12 +68,12 @@ myAge(30)
 // console outputs 'Age is currently 30'
 ```
 
-## Example: Reactive Element Properties
+## Application: Reactive Element Properties
 
 Add this function to your project:
 
 ```js
-function bind(fibers, element) {
+function bind(element, fibers) {
 
 	Object.entries(fibers).forEach(([key, fiber]) => {
 		fiber(value => element[key] = value)
@@ -104,9 +104,9 @@ console.log(div)
 // <div id='danger'></div>
 ```
 
-## Example: Reactive Components
+## Application: Reactive Components
 
-Taking this idea further, we can simplify the construction of components
+Taking this idea further, we can simplify the construction of components.
 
 ```js
 function App({ background, ...rest }) {
@@ -145,3 +145,5 @@ console.log(app)
 //     <img src='./dog.jpg'>
 // </div>
 ```
+
+It's also possible to achieve *declarative* components using a similar system; in other words, we can do something very similar to React or Vue using nothing more than `fiber()` and `bind()`.
