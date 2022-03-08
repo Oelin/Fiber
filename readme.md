@@ -103,3 +103,45 @@ console.log(div)
 
 // <div id='danger'></div>
 ```
+
+## Example: Reactive Components
+
+Taking this idea further, we can simplify the construction of components
+
+```js
+function App({ background, ...rest }) {
+
+	const root = document.createElement('div')
+	const image = document.createElement('img')
+	
+	root.append(image)
+	
+	bind(root, rest)
+	bind(image, { src: background })
+	
+	return root
+}
+```
+
+```js
+const background = fiber('./cat.jpg')
+
+const app = App({
+	background,
+	id: fiber('my-app')
+})
+
+console.log(app)
+
+// <div id='my-app'>
+//     <img src='./cat.jpg'>
+// </div>
+
+background('./dog.jpg')
+
+console.log(app)
+
+// <div id='my-app'>
+//     <img src='./dog.jpg'>
+// </div>
+```
