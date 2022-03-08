@@ -96,7 +96,7 @@ console.log(div)
 // <div id='neutral'></div>
 ```
 
-```
+```js
 id('danger')
 
 console.log(div)
