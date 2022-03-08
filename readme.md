@@ -67,3 +67,39 @@ myAge(30)
 
 // console outputs 'Age is currently 30'
 ```
+
+## Example: Reactive Element Properties
+
+Add this function to your project:
+
+```js
+function bind(fibers, element) {
+
+	Object.entries(fibers).forEach(([key, fiber]) => {
+		fiber(value => element[key] = value)
+	})
+}
+```
+
+Now you can make any element's properties reactive.
+
+```js
+const div = document.createElement('div')
+const id = fiber('neutral')
+
+bind(div, { id })
+```
+
+```js
+console.log(div)
+
+// <div id='neutral'></div>
+```
+
+```
+id('danger')
+
+console.log(div)
+
+// <div id='danger'></div>
+```
