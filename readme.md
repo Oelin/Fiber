@@ -48,19 +48,22 @@ name('Sam')
 You can register any number of listeners to a fiber variable. For example:
 
 ```js
-const age = fiber(19)
 
-age(value => console.log(`Age is ${value}`))
-age(value => (value < 20) && console.log('You are young'))
+function showAge(age) {
+	console.log(`Age is currently ${age}`)
+}
 
-// console outputs 'Age is 12' and then 'You are young'
-```
+function showYoung(age) {
+	if (age < 20) {
+		console.log('You are young!')
+	}
+}
 
-You can also register them when first initialising the variable:
+const myAge = fiber(19, showAge, showYoung)
 
-```js
-const times2 = value => value * 2
-const minus2 = value => value - 2
+// console outputs 'Age is currently 19' and then 'You are young'
 
-const age = fiber(19, times2, minus2)
+myAge(30)
+
+// console outputs 'Age is currently 30'
 ```
